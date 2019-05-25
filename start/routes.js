@@ -17,3 +17,4 @@
 const Route = use('Route')
 
 Route.on('/').render('home.index')
+Route.get('/events', 'EventController.index')
