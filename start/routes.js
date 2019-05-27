@@ -19,3 +19,5 @@ const Route = use('Route')
 Route.on('/').render('home.index')
 
 Route.get('/events', 'EventController.index').as('events.index')
+Route.get('/events/create', 'EventController.create').as('events.create')
+Route.post('/events', 'EventController.store').as('events.store')
