@@ -1,5 +1,40 @@
 @layout('layouts.main')
 
 @section('content')
-  <h1>Meus eventos</h1>
+  <div class="columns">
+    <div class="column is-fourth-fifth">
+      <h1 class="title is-4">Meus eventos</h1>
+    </div>
+
+    <div class="column is-one-fifth">
+      <a href="{{ route('events.create') }}" class="button is-success">Novo Evento</a>
+    </div>
+  </div>
+  
+  @if(events.length > 0)
+    
+    <div class="columns">
+      @each(event in events)
+        <div class="column is-one-third">
+          <div class="box">
+            <p class="is-size-5">
+              <strong>{{ event.title }}</strong>
+            </p>
+            
+            <p class="is-size-7">
+              <i>[{{ event.date }}]</i>
+            </p>
+            
+            <br />
+
+            <p class="is-6">{{ event.description }}<p>
+          </div>
+        </div>
+      @endeach
+    </div>
+  
+  @else
+    <h1 class="subtitle is-5">Você não tem eventos cadastrados</h1>
+  @endif
+
 @endsection
