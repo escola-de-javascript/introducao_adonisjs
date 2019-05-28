@@ -1,0 +1,8 @@
+@layout('layouts.main')
+
+@section('content')
+  <h1 class="title is-4">Editar Evento</h1>
+  
+  @!component("event.form", action = route("events.update", { id: event.id }), method = "PATCH", event = event, 
+              csrfFields = csrfField())
+@endsection
