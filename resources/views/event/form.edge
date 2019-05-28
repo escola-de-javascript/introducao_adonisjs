@@ -1,0 +1,31 @@
+<form action="{{ action }}?_method={{ method }}" method="POST">
+  {{ csrfFields }}
+
+  <div class="columns is-multiline">
+    <div class="column is-four-fifths field">
+      <label for="title">Título</label>
+      <div class="control">
+        <input input="text" class="input" name="title" value="{{ event.title || '' }}" />
+      </div>
+    </div>
+
+    <div class="column is-one-fifth field">
+      <label for="date">Data</label>
+      <div class="control">
+        <input input="date" class="input" name="date" value="{{ event.date || '' }}" />
+      </div>
+    </div>
+
+    <div class="column is-full field">
+      <label for="description">Descrição</label>
+      <div class="control">
+        <textarea input="description" class="textarea" name="description" style="resize: none">{{ event.description || '' }}</textarea>
+      </div>
+    </div>
+
+    <div class="column is-full field">
+      <button type="submit" class="button is-success">Salvar</button>
+      <a href="{{ route('events.index') }}" class="button is-light">Cancelar</a>
+    </div>
+  </div>
+</form>
