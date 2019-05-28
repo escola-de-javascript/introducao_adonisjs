@@ -2,37 +2,7 @@
 
 @section('content')
   <h1 class="title is-4">Novo Evento</h1>
-
-  <form action="{{ route('events.store') }}" method="POST">
-    {{ csrfField() }}
-
-    <div class="columns is-multiline">
-      <div class="column is-four-fifths field">
-        <label for="title">Título</label>
-        <div class="control">  
-          <input input="text" class="input" name="title" />
-        </div>
-      </div>
-
-      <div class="column is-one-fifth field">
-        <label for="date">Data</label>
-        <div class="control">
-          <input input="date" class="input" name="date" />
-        </div>
-      </div>
-
-      <div class="column is-full field">
-        <label for="description">Descrição</label>
-        <div class="control">
-          <textarea input="description" class="textarea" name="description" style="resize: none">
-          </textarea>
-        </div>
-      </div>
-
-      <div class="column is-full field">
-        <button type="submit" class="button is-success">Salvar</button>
-        <a href="{{ route('events.index') }}" class="button is-light">Cancelar</a>
-      </div>
-    </div>
-  </form>
+  
+  @!component("event.form", action = route("events.store"), method = "POST", event = event, 
+              csrfFields = csrfField())
 @endsection
