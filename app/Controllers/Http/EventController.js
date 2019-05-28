@@ -17,6 +17,19 @@ class EventController {
     await Event.create({ ...eventParams })
     return response.route('events.index')
   }
+
+  async edit({ params, view }) {
+    const event = await Event.find(params.id)
+    return view.render('event.edit', { event: event })
+  }
+
+  async update({ params, request, response }) {
+    const event = await Event.find(params.id)
+    const eventParams = request.only(['title', 'date', 'description'])
+    event.merge({ ...eventParams })
+    await event.save()
+    return response.route('events.index')
+  }
 }
 
 module.exports = EventController
