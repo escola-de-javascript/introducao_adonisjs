@@ -28,6 +28,12 @@
             <br />
 
             <p class="is-6">{{ event.description }}<p>
+            
+            <br />
+
+            <p>
+              <a href="{{ route('events.edit', { id: event.id }) }}" class="button is-small is-link">Editar</a>
+            </p>
           </div>
         </div>
       @endeach
